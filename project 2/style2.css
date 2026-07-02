@@ -79,7 +79,7 @@ button:active {
   transform: scale(0.98);
 }
 
-#results {
+#result {
   font-size: 36px;
   font-weight: 700;
   color: #4caf82;
@@ -88,6 +88,15 @@ button:active {
   min-height: 44px;
 }
 
+#weight-guide1 {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  line-height: 1.7;
+  border-top: 1px solid #3a3a3a;
+  padding-top: 16px;
+}
 #weight-guide {
   margin-top: 20px;
   font-size: 13px;

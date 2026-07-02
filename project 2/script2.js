@@ -1,26 +1,38 @@
-const form=document.querySelector('form');
+const height=document.querySelector("#height")
+const weight=document.querySelector("#weight")
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const weight=parseInt(document.querySelector('#weight').value);
-    const height=parseInt(document.querySelector('#height').value);
-    const result=document.querySelector('#result');
+const result=document.querySelector("#result")
+const weight_guide=document.querySelector("#weight-guide")
 
-    if(height == '' || height<0 || isNaN(height)){
-        result.innerHTML='Please enter valid value height';
-    } else if(weight == '' || weight<0 || isNaN(weight)){
-        result.innerHTML='Please enter valid value weight ';
-    } else {
-        const bmi=weight / ((height/100) ** 2);
-        if(bmi < 18.6){
-            result.innerHTML=`Your BMI is: ${bmi.toFixed(2)} and you are underweight`;
+const calculate=document.querySelector("#calcbtn")
+
+calculate.addEventListener("click",(e)=>{
+    e.preventDefault()
+if(height.value <=0){
+    result.textContent="Enter a valid height" 
+    return;   
+}
+else if(weight.value <=0 ){
+    result.textContent="Enter a valid weight "
+    return;   
+            
         }
-        else if(bmi >= 18.6 && bmi < 24.9){
-        result.innerHTML=`Your BMI is: ${bmi.toFixed(2)} and you are in the normal range`;}
-        else{
-            result.innerHTML=`Your BMI is: ${bmi.toFixed(2)} and you are overweight`;
-        }
+
+ const bmi = (weight.value * 10000) / (height.value * height.value);
+    result.textContent = bmi.toFixed(2);
+
+    if(bmi < 18.6){
+            weight_guide.innerHTML="you are under weight , Abay kuch khaya pya karo"
     }
-
+    else if(bmi > 24.9){
+            weight_guide.innerHTML="you are over weight , Abay thora kam khaya pya karo"
+    }
+    else{
+        weight_guide.innerHTML="Your weight is perfect , GYM wagera kya karo"
+    }
+    
 
 })
+
+
+
